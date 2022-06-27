@@ -1,0 +1,10 @@
+{
+    "name": "sorterimages",
+    "displayName": "SorterImages",
+    "author": "MCDRA",
+    "description": "Sorter images schematics generator\n[stat]Requires deltanedas/ui-lib",
+    "version": "1.0",
+    "minGameVersion": "126.2",
+    "dependencies": ["ui-lib"],
+    "hidden": false
+}
