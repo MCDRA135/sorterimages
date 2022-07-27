@@ -3,7 +3,7 @@ const core = require('sorterimages/core')
 const { alphaThreshold } = require('./core')
 
 const menu = {
-    dialog: null
+    dialog: null // the mod main dialog
 }
 
 function constructTextureRegion(pixmap) {
@@ -28,7 +28,7 @@ menu.buildDialog = function () {
             core.setAlphaThreshold(alphaThreshold)
         })
         var successCell
-        //var imageCell
+        //var imageCell // used to display a preview of the image; not very well rendered most of the time, so de-activated for release
         
         d.cont.add('Select an image : ')
         d.cont.button('Browse', Icon.fileImage, () => {
@@ -80,11 +80,13 @@ menu.buildDialog = function () {
 menu.init = function () {
     ui.onLoad(() => {
         this.buildDialog()
+        // Allow access to the mod dialog through ui-lib's main menu category
         ui.addMenuButton(
             'SorterImages',
             'effect',
             () => this.dialog.show()
         )
+        // Allow access to the mod dialog through the schematic menu
         Vars.ui.schematics.buttons.button(
             'SorterImages',
             Icon.effect,
